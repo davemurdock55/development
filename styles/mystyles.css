@@ -1,0 +1,126 @@
+@font-face {
+    font-family: 'open_sansextrabold';
+    src: url('../fonts/webfontkit-20210412-193252/google_fonts_-_open_sans_extrabold-webfont.woff2') format('woff2'),
+            url('../fonts/webfontkit-20210412-193252/google_fonts_-_open_sans_extrabold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.imgoverlayoverride {background-color:#abd4fd;opacity:.25}
+
+.bgoverlayoverride {background-color:#212529;opacity:.5; z-index: 2;}
+
+a {
+    color: #226779;
+}
+
+a:hover {
+    /*color: #80ffff;*/
+    color: #00bbcc;
+}
+
+.resumetitle {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    /*color: #264275;*/
+    color: #26526e;
+    text-decoration: underline;
+}
+
+.resumecontent {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /*color: #264275;*/
+    /*color: #26526e;*/
+    color: #0485a1;
+    font-size: 20px;
+ }
+
+
+.contactmetitle {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    /*color: #267a8f;*/
+    color: #226779;
+}
+
+.imground {
+    border-radius: 50%;
+  }
+
+
+.contactmetext {
+    font-weight: light;
+    /*color: #69B6BF;*/
+    /*color: #3796b1;*/
+    color: #85bbc1;
+    /*color: #1F779A;*/
+    font-size: 22px;
+}
+
+
+.aboutme {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+body {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: rgb(78, 105, 187);
+    background-color: rgb(241, 241, 241);
+}
+
+
+
+h5 {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    font-style:italic;
+}
+
+
+/*li {
+    font-size: 14px;
+    font-weight: lighter;
+}*/
+
+.toplink {
+    /*font-weight: lighter;*/
+    /*text-decoration: none;*/
+    color: white;
+}
+
+
+
+.bold {font-weight: bold;}
+.light {font-weight: lighter;}
+.lighter {font-weight: 250;}
+.italics {font-style: italic;}
+.norm {font-style: normal;}
+.justify {text-align: justify;}
+.underline {text-decoration: underline;}
+.plain {text-decoration: none;}
+.bolder {font-weight:bolder}
+
+/*.overlay{
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    background-color:#212529;
+    opacity:.25}*/
+
+
+/* Here are some cool fonts! */
+/*font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;*/
+/*font-family: Georgia, 'Times New Roman', Times, serif;*/
+/*font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;*/
+/*font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;*/
+/*font-family: sans-serif;*/
+/*font-family: 'Times New Roman', Times, serif;*/
+/*font-family: Verdana, Geneva, Tahoma, sans-serif;*/
+
+

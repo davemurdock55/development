@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idea Mixer</title>
+    <link rel="stylesheet" type="text/css" href="css/BlueFormStyle1.css">
+</head>
+<body>
+    <!-- <span class="bg-img">
+        <span class="higher">hi</span>
+    </span> -->
+    
+    <h1>Idea Mixer</h1>
+    <h2>Mix any two categories of random ideas together</h2>
+
+    <div>
+        <label for="iNumCategories">Number of categories:</label>
+        <select name="iNumCategories" id="iNumCategories" onchange="unhideCategories();">
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+
+    <div class="selectbar">
+        <!-- For now this is a simple way for me to mash up some of the things I love -->
+        <label for="category1"></label>
+        <select name="category1" id="category1">
+            <option value="colors">Colors</option>
+            <option value="races">Races</option>
+            <option value="buildings">Buildings</option>
+            <option value="items">Items</option>
+            <option value="animals">Animals</option>
+            <option value="stories">Stories</option>
+            <option value="places">Places</option>
+            <option value="creatures">Creatures</option>
+            <option value="adjectives">Adjectives</option>
+        </select>
+
+        <label for="category2"></label>
+        <select name="category2" id="category2">
+            <option value="colors">Colors</option>
+            <option value="races">Races</option>
+            <option value="buildings">Buildings</option>
+            <option value="items">Items</option>
+            <option value="animals">Animals</option>
+            <option value="stories">Stories</option>
+            <option value="places">Places</option>
+            <option value="creatures">Creatures</option>
+            <option value="adjectives">Adjectives</option>
+        </select>
+
+        <label for="category3"></label>
+        <select name="category3" id="category3" hidden>
+            <option value="colors">Colors</option>
+            <option value="races">Races</option>
+            <option value="buildings">Buildings</option>
+            <option value="items">Items</option>
+            <option value="animals">Animals</option>
+            <option value="stories">Stories</option>
+            <option value="places">Places</option>
+            <option value="creatures">Creatures</option>
+            <option value="adjectives">Adjectives</option>
+        </select>
+
+        <label for="category4"></label>
+        <select name="category4" id="category4" hidden>
+            <option value="colors">Colors</option>
+            <option value="races">Races</option>
+            <option value="buildings">Buildings</option>
+            <option value="items">Items</option>
+            <option value="animals">Animals</option>
+            <option value="stories">Stories</option>
+            <option value="places">Places</option>
+            <option value="creatures">Creatures</option>
+            <option value="adjectives">Adjectives</option>
+        </select>
+
+        <label for="category5"></label>
+        <select name="category5" id="category5" hidden>
+            <option value="colors">Colors</option>
+            <option value="races">Races</option>
+            <option value="buildings">Buildings</option>
+            <option value="items">Items</option>
+            <option value="animals">Animals</option>
+            <option value="stories">Stories</option>
+            <option value="places">Places</option>
+            <option value="creatures">Creatures</option>
+            <option value="adjectives">Adjectives</option>
+        </select>
+        <br>
+    </div>
+
+    <div>
+        <label for="customIdea">Custom Idea:</label>
+        <input type="text" name="customIdea" id="customIdea">
+        <br>
+    </div>
+    
+    <div>
+        <label for="categoryOfIdea">Category of Idea:</label>
+        <select name="categoryOfIdea" id="categoryOfIdea">
+            <option value="colors">Colors</option>
+            <option value="races">Races</option>
+            <option value="buildings">Buildings</option>
+            <option value="items">Items</option>
+            <option value="animals">Animals</option>
+            <option value="stories">Stories</option>
+            <option value="places">Places</option>
+            <option value="creatures">Creatures</option>
+            <option value="adjectives">Adjectives</option>
+        </select>
+    </div>
+    <br>
+    <button type="button" onclick="addIdea();">Add Idea</button>
+    
+    <center>
+        <label for="favorites">Favorites Only?
+            <input type="checkbox" id="favorites">
+        </label>
+    </center>
+
+    <br><br>
+    <button type="button" onclick="favorites(); mixIdeas();">Mix</button>
+    <br>
+    <hr>
+    
+
+    <fieldset>
+        <h2 id="output" style="text-align: center;"></h2>
+    </fieldset>
+
+<!-- <img src="assets/img/blue-green-swirl-abstract-background.jpeg" alt=""> -->
+
+    <script>
+        let aColors = [];
+        let aRaces = [];
+        let aBuildings = [];
+        let aItems = [];
+        let aAnimals = [];
+        let aStories = [];
+        let aPlaces = [];
+        let aCreatures = [];
+        let aAdjectives = [];
+        // let aVisuals = ["Lightning","Auroras"];
+        
+        
+
+        // document.getElementById("category4").hidden = true;
+        // document.getElementById("category3").disabled = true;
+    function unhideCategories()
+    {
+        if(parseInt(document.getElementById("iNumCategories").value) == 3)
+        {
+            document.getElementById("category3").hidden = false;
+            document.getElementById("category4").hidden = true;
+            document.getElementById("category5").hidden = true;
+        }
+        else if(parseInt(document.getElementById("iNumCategories").value) == 4)
+        {
+            document.getElementById("category3").hidden = false;
+            document.getElementById("category4").hidden = false;
+            document.getElementById("category5").hidden = true;
+        }
+        else if(parseInt(document.getElementById("iNumCategories").value) == 5)
+        {
+            document.getElementById("category3").hidden = false;
+            document.getElementById("category4").hidden = false;
+            document.getElementById("category5").hidden = false;
+        }
+        else
+        {
+            document.getElementById("category3").hidden = true;
+            document.getElementById("category4").hidden = true;
+            document.getElementById("category5").hidden = true;
+        }
+
+        // switch (parseInt(document.getElementById("iNumCategories").value)) 
+        // {
+        //     case 2:
+        //         document.getElementById("category2").hidden = false;
+        //         break;
+        //     case 3:
+        //         document.getElementById("category3").hidden = false;
+        //         break;
+        //     case 4:
+        //         document.getElementById("category3").hidden = false;
+        //         document.getElementById("category4").hidden = false;
+        //         break;
+        //     case 5:
+        //         document.getElementById("category3").hidden = false;
+        //         document.getElementById("category4").hidden = false;
+        //         document.getElementById("category5").hidden = false;
+        //         break;
+        //     default:
+        //         document.getElementById("category1").hidden = false;
+        //         document.getElementById("category2").hidden = false;
+        // }       
+        
+    } 
+
+    function addIdea()
+    {
+        let sCustomIdea = document.getElementById("customIdea").value;
+        let categoryOfIdea = document.getElementById("categoryOfIdea").value;
+
+        aColors.push(sCustomIdea);
+        console.log(aColors);
+    }
+
+
+    function rand0tolength(length)
+    {
+        let iRandNum = Math.floor(Math.random() * (length)); // creates a random number between 0 and length (the -1 (cause of array) and +1 (cause of rand num gen) cancel out)
+        return iRandNum;
+    }
+
+    function favorites()
+    {
+        
+        if(document.getElementById("favorites").checked == false)
+        {
+            // ALL
+            aColors = ["Red","Orange","Yellow","Green","Blue","Indigo","Violet","Electric-Blue","Seafoam-Green","Fire-Red","Plant-Green","Divine-White","Sunset-Orange","Sunset-Red","Sunset-Yellow","Sky-Blue","Rust-Red","Marine","Aquamarine","Teal","Cyan","Burnt-Orange","Musty-Orange"];
+            aRaces = ["Human","Elf","Inridus","Osmosian","Dwarf","Anodite","Jedi","Sith","Night Fury","Dragon","Nightwing","Sandwing","Rainwing","Seawing","Skywing","Mudwing","Icewing","Leafwing","Silkwing","Hivewing","Gondorian","Hobbit","Ent","Orc","Troll","Hadarim", "Rohan"];
+            aBuildings = ["Skyscraper","Temple", "Shrine","Home","Castle","Fortress","Abandoned Ruins","Rock Statues","Village House","Palace","Mansion","Courtyard","Tower","Watchtower","Guard Tower","Cave","Bridge","Pub","Bar","Concert Hall","General Store","Tannerie","Peddler Shop","City Hall","Shack"];
+            aItems = ["Sword","Shield","Bow","Spear","Ring","Crystal","Orb","Helmet","Gauntlet","Breastplate","Boots","Gun","Shardblade","Lightsaber","Crossbow","Staff","Magic Object"];
+            aAnimals = ["Moose","Bird","Dragon","Dog","Monkey","Bat","Amphibian","Mammal","Reptile","Insect","Arachnid","Fish","Penguin","Bear","Lion","Platypus","Axolotl","Turtle","Frog","Fungus","Plant","Virus","Bacteria","Tiger"];
+            aStories = ["Star Wars","Ben 10","Stormlight Archive","Wings of Fire","Warriors","Marvel","Beowulf","The Epic of Gilgamesh","Charlotte's Web","Transformers","The Pacifier","Pokémon","Mistborn","Theft of Swords","Eragon","Fablehaven","Dragon Watch","Oceans 11","Avatar The Last Airbender","The Clone Wars","The Italian Job","Cosmere"];
+            aPlaces = ["Forest","Jungle","Desert","Space","Mountain","Cave","Ruins","Plains","Rocky Plains","Swamp","Mesa","Ocean","Sea","Wetland","Beach","Lake","River","Pond","Glacier","Drylands","Arctic","Tundra","Islands","Archiplego","City","Bridge","Village"];
+            aCreatures = ["Zombie","Vampire","Skeleton","Dragon","Minotaur","Satyr","Worm","Slime","Hydra","Cerberus","Ghost","Dementor","Spider","Unicorn","Pheonix","Gryffin","Hippocampus","Chimera","Scarecrow","Ent","Orc","Troll", "Valar"];
+            aAdjectives = ["Magical","Stunning","Electric","Shining","Chromatic","Iridescent","Blank","Deadly","Disgusting","Revulting","Sharp","Gleaming","Ramshackle","Gooey","Evil","Divine","Monsterous","Collossol","Beheamoth","Enormous","Big","Huge","Miniscule","Tiny","Petit","Obese","Night","Dark","Light","Dank","Hybrid","Glowing","Plain","Musty"];
+            // let aVisuals = ["Lightning","Auroras"];
+
+        }
+        else
+        {
+            // FAVORITES
+            aColors = ["Red","Orange","Yellow","Green","Blue","Indigo","Violet","Electric-Blue","Seafoam-Green","Fire-Red","Plant-Green","Divine-White","Sunset-Orange","Sunset-Red","Sunset-Yellow","Sky-Blue","Rust-Red","Marine","Aquamarine","Teal","Cyan","Burnt-Orange"];
+            aRaces = ["Human","Elf","Inridus","Osmosian","Dwarf","Anodite","Jedi","Sith","Night Fury","Dragon","Nightwing","Sandwing","Rainwing","Gondorian","Ent"];
+            aBuildings = ["Skyscraper","Temple", "Shrine","Home","Castle","Fortress","Abandoned Ruins","Rock Statues","Palace","Mansion","Courtyard","Tower","Watchtower","Guard Tower","Cave","Bridge","Concert Hall","City Hall"];
+            aItems = ["Sword","Shield","Bow","Spear","Ring","Crystal","Orb","Helmet","Gauntlet","Breastplate","Boots","Gun","Shardblade","Crossbow","Staff","Magic Object"];
+            aAnimals = ["Dragon","Bat","Amphibian","Reptile","Insect","Fish","Axolotl","Turtle","Frog","Virus","Tiger"];
+            aStories = ["Star Wars","Ben 10","Stormlight Archive","Wings of Fire","Warriors","Marvel","Beowulf","The Epic of Gilgamesh","Transformers","Pokémon","Mistborn","Theft of Swords","Eragon","Fablehaven","Dragon Watch","Oceans 11","Avatar The Last Airbender","The Clone Wars","The Italian Job","Cosmere"];
+            aPlaces = ["Forest","Jungle","Desert","Space","Mountain","Cave","Ruins","Plains","Rocky Plains","Swamp","Mesa","Ocean","Sea","Wetland","Beach","Lake","River","Pond","Glacier","Drylands","Arctic","Tundra","Islands","Archiplego","City","Bridge","Village"];
+            aCreatures = ["Zombie","Vampire","Skeleton","Dragon","Hydra","Cerberus","Ghost","Dementor","Spider","Pheonix","Gryffin","Ent","Valar"];
+            aAdjectives = ["Magical","Stunning","Electric","Shining","Chromatic","Iridescent","Blank","Deadly","Revulting","Sharp","Gleaming","Evil","Divine","Monsterous","Collossol","Beheamoth","Enormous","Huge","Petit","Night","Dark","Light","Hybrid","Glowing","Plain"];
+    
+        }
+
+    }
+
+    function mixIdeas()
+    {
+        // clearing the output area before running the script of the function
+        document.getElementById("output").innerHTML = "";
+        
+        class CategoryList
+        {
+            colors = aColors;
+            races = aRaces;
+            buildings = aBuildings;
+            items = aItems;
+            animals = aAnimals;
+            stories = aStories;
+            places = aPlaces;
+            creatures = aCreatures;
+            adjectives = aAdjectives;
+        }
+
+        let oCategories = new CategoryList();
+
+        // bring the count back to 1
+        let i = 1;
+
+        // creating a variable for the current category
+        let currentCategory = document.getElementById("category" + i).value;
+
+        // creating a variable for the current item in the current category
+        let currentItem = oCategories[currentCategory][rand0tolength(oCategories[currentCategory].length)];
+        // oCategories is the Category List item
+
+        let iCategories = parseInt(document.getElementById("iNumCategories").value);
+        for (i = 1; i <= iCategories; i++)
+        {
+            // making the current category the category chosen by the user in the current select input
+            currentCategory = document.getElementById("category" + i).value;
+            console.log("The current category is:" + currentCategory);
+
+            // making the current item a random item from the current category
+            currentItem = oCategories[currentCategory][rand0tolength(oCategories[currentCategory].length)];
+            console.log("The current item is:" + currentItem);
+
+            // outputting that to the output
+            document.getElementById("output").innerHTML += currentItem + " "; 
+        }
+    }
+
+    </script>
+</body>
+</html>

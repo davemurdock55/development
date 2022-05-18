@@ -1,0 +1,245 @@
+/* secondary? #51b4bb */
+/* #5176bb */
+
+:root
+{
+    --primary: #5176bb;
+    --secondary: #51b4bb;
+    --bsc-mrgn-btm: 30px;
+    --bsc-hdr-margin-lr: 30%;
+    --bg-blur: blur(10px);
+    --bg-opac: rgb(255, 255, 255, 0.65);
+    --in-trans: .3s;
+    --out-trans: .2s;
+}
+
+/* BASIC */
+html
+{
+    background-color: white;
+    /* background-image: linear-gradient(rgb(122, 215, 231), rgb(53, 90, 138)); */
+    /* background-image: conic-gradient(rgb(122, 215, 231), rgb(53, 90, 138)); */
+    /* background-image: repeating-conic-gradient(rgb(122, 215, 231), rgb(53, 90, 138)); */
+    /* background-image: repeating-conic-gradient(rgb(122, 215, 231, .5) 10%, rgb(53, 90, 138, .5) 20%); */
+    padding-bottom: 100%;
+    /* background-color: #608bdb; */
+    /* background-image: url("assets/img/blue-green-swirl-abstract-background.jpeg"); */
+    /* background-color: #5176bb; */
+    /* background-color: #426097; */
+    /* background-color: #f3f3f3; */
+    /* background-image: url('assets/img/blue-green-swirl-abstract-background.jpeg'); */
+}
+
+.bg-img
+{
+    background-image: repeating-conic-gradient(rgb(122, 215, 231, .5) 10%, rgb(53, 90, 138, .5) 20%);
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: auto;
+}
+
+.higher{
+    fill: white;
+    z-index: 11;
+    display: initial;
+    margin: initial;
+    width:initial;
+    padding-left: initial;
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+    height: 100%;
+}
+
+.square {
+    width: 100%;
+    height: 100%;
+    /* width: 100px; */
+    /* height: 100px; */
+    background-image: repeating-conic-gradient(rgb(122, 215, 231, .5) 10%, rgb(53, 90, 138, .5) 20%);
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+}
+
+.unblr
+{
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+    display: block;
+    margin: auto;
+    width:auto;
+    padding-left: 0%;
+}
+
+.blurbehind
+{
+    backdrop-filter: blur(30px);
+    height: 100%;
+
+}
+
+body
+{
+    /* color: white; */
+    color: var(--primary);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    height: 100%;
+}
+
+h1
+{
+    text-align: center;
+}
+
+h2
+{
+    text-align: center;
+}
+
+div
+{
+    display: block;
+    margin: auto;
+    width:initial;
+    padding-left: 25%;
+    /* padding-right: 25%; */
+
+    /* Hidden for debugging :) */
+    /* border: 3px solid green; */
+}
+
+.selectbar
+{
+    margin: auto;
+    width: fit-content;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+hr
+{
+    height: 2px;
+    background-color: var(--primary);
+    border: none;
+    margin-left: var(--bsc-hdr-margin-lr);
+    margin-right: var(--bsc-hdr-margin-lr);
+    margin-bottom: var(--bsc-mrgn-btm);
+}
+
+
+/* BUTTONS */
+button
+{
+    display: block;
+    background-color: white;
+    color: var(--primary);
+    font-size: larger;
+    font-weight: bold;
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: var(--out-trans);
+    margin: auto;
+    margin-bottom: var(--bsc-mrgn-btm);
+}
+
+button:hover
+{
+    background-color: var(--primary);
+    color: white;
+    cursor: pointer;
+    transition: var(--in-trans);
+}
+
+
+
+/* FORM STUFF */
+form
+{
+    /* background-color: rgb(255, 255, 255, 0.5); */
+    border-radius: 15px;
+    /* backdrop-filter: blur(10px); */
+    /* filter: drop-shadow(0px 1px 1.5px rgb(0, 0, 0, 0.555)); */
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: var(--bsc-mrgn-btm);
+}
+
+fieldset
+{
+    padding: 10px;
+    /* border: 1px solid rgb(185, 185, 185); */
+    /* border: 1px solid white; */
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+    margin-bottom: var(--bsc-mrgn-btm);
+}
+
+legend
+{
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: var(--bsc-mrgn-btm);
+}
+
+label
+{
+    font-weight: bold;
+    margin-bottom: var(--bsc-mrgn-btm);
+}
+
+
+input[type=text]
+{
+    /* background-color: white; */
+    background-color: var(--bg-opac);
+    backdrop-filter: var(--bg-blur);
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    padding: .5% 1.1%;
+    margin-bottom: var(--bsc-mrgn-btm);
+}
+
+select
+{
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    padding: 3px;
+    background-color: var(--bg-opac);
+    backdrop-filter: var(--bg-blur);
+    transition: var(--out-trans);
+    margin-bottom: var(--bsc-mrgn-btm);
+}
+
+select:hover
+{
+    background-color: var(--primary);
+    color: white;
+    /* border: 2px solid #5176bb; */
+    filter: blur(300);
+    cursor: pointer;
+    transition: var(--in-trans);
+}
+
+/* BOKEH EFFECT */
+.bokeh
+{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #1d0302;
+    overflow: hidden;
+}
+
+
+/* Text shadow with ALL the colors mwahahaha */
+/* text-shadow: 0px 0px 5px #fff, 0px 0px 5px #FF0000, 0px 0px 5px #FFFD00, 0px 0px 5px #1CFF00, 0px 0px 5px #00F9FF, 0px 0px 5px #000BFF, 0px 0px 5px #FD00FF, 0px 0px 5px #FD00FF; */
+
+
