@@ -1,0 +1,54 @@
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+.trans-nav {
+    background-color: rgba(255, 255, 255, 0.3);
+    /* -webkit-backdrop-filter: blur(50px); */
+    backdrop-filter: blur(50px);
+}  
+
+.txt-full-hvr
+{
+  color: rgb(255, 255, 255, .75);
+}
+
+.txt-full-hvr:hover
+{
+  color: rgb(255, 255, 255, 1);
+}
+
+.txt-shd-wh   
+{
+  text-shadow: 0px 0px 5px #fff;
+}
+
+.txt-shd-wh-hvr
+{
+  color: inherit;
+  transition: 0.2s;
+}
+
+.txt-shd-wh-hvr:hover
+{
+  text-shadow: 0px 0px .5px #fff;
+  transition: 0.3s;
+}
+
+.txt-shd-blk   
+{
+  text-shadow: 0px 0px 5px #000;
+}
+
+.bg-blr-10
+{
+  backdrop-filter: blur(10px);
+}
+
+.box-shd
+{
+  box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.75);
+}
