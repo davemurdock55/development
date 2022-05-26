@@ -1,5 +1,23 @@
 {
   "dependencies": {
     "firebase": "^9.8.1"
-  }
+  },
+  "name": "development",
+  "version": "1.0.0",
+  "description": "David Murdock Website",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davemurdock55/development.git"
+  },
+  "author": "David Murdock",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davemurdock55/development/issues"
+  },
+  "homepage": "https://github.com/davemurdock55/development#readme"
 }
