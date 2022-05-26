@@ -206,7 +206,6 @@ input[type=value]
     backdrop-filter: var(--bg-blur);
     border: 1px solid var(--primary);
     border-radius: 5px;
-    padding: .5% 1.1%;
     margin-bottom: var(--bsc-mrgn-btm);
 }
 
