@@ -100,18 +100,6 @@ h2
     text-align: center;
 }
 
-div
-{
-    /* display: block; */
-    /* margin: auto; */
-    /* width:initial; */
-    /* padding-left: 25%; */
-    /* padding-right: 25%; */
-
-    /* Hidden for debugging :) */
-    /* border: 3px solid green; */
-}
-
 .selectbar
 {
     margin: auto;
