@@ -21,6 +21,8 @@
 
     <!-- CUSTOM STYLES -->
     <link rel="stylesheet" type="text/css" href="css/BlueFormStyle1.css">
+
+    <!-- FIREBASE SCRIPTS -->
     <script type="module">
         // SEE THIS WEBSITE FOR MORE INFO ON WHAT IS GOING ON HERE:
         // https://github.com/JSneak/firebase-tutorial#adding-firebase-to-your-website
@@ -169,146 +171,146 @@
         </div>
     </nav>
     <center>
-    <!-- <span class="bg-img">
-        <span class="higher">hi</span>
-    </span> -->
-    
-    <h1>Idea Mixer</h1>
-    <h2>Mix any two categories of random ideas together</h2>
+        <!-- <span class="bg-img">
+            <span class="higher">hi</span>
+        </span> -->
+        
+        <h1>Idea Mixer</h1>
+        <h2>Mix any two categories of random ideas together</h2>
 
-    <!-- INFO: https://github.com/JSneak/firebase-tutorial#updating-data-in-the-realtime-database -->
-    <center>
-        <h3>THE BUTTON AND TEXT BOX:</h3>
-        <input type="value" id="dataValue"></input>
-        <button onClick="pushData()">Add data to Firebase</button>
-    </center>
+        <!-- INFO: https://github.com/JSneak/firebase-tutorial#updating-data-in-the-realtime-database -->
+        <center>
+            <h3>THE BUTTON AND TEXT BOX:</h3>
+            <input type="value" id="dataValue"></input>
+            <button onClick="pushData()">Add data to Firebase</button>
+        </center>
 
-    <!-- Number of Categories -->
-    <div>
-        <label for="iNumCategories">Number of categories:</label>
-        <select name="iNumCategories" id="iNumCategories" onchange="unhideCategories();">
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-    </div>
+        <!-- Number of Categories -->
+        <div>
+            <label for="iNumCategories">Number of categories:</label>
+            <select name="iNumCategories" id="iNumCategories" onchange="unhideCategories();">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
 
-    <!-- Category Selection -->
-    <div class="selectbar">
-        <!-- For now this is a simple way for me to mash up some of the things I love -->
-        <label for="category1"></label>
-        <select name="category1" id="category1">
-            <option value="colors">Colors</option>
-            <option value="races">Races</option>
-            <option value="buildings">Buildings</option>
-            <option value="items">Items</option>
-            <option value="animals">Animals</option>
-            <option value="stories">Stories</option>
-            <option value="places">Places</option>
-            <option value="creatures">Creatures</option>
-            <option value="adjectives">Adjectives</option>
-        </select>
+        <!-- Category Selection -->
+        <div class="selectbar">
+            <!-- For now this is a simple way for me to mash up some of the things I love -->
+            <label for="category1"></label>
+            <select name="category1" id="category1">
+                <option value="colors">Colors</option>
+                <option value="races">Races</option>
+                <option value="buildings">Buildings</option>
+                <option value="items">Items</option>
+                <option value="animals">Animals</option>
+                <option value="stories">Stories</option>
+                <option value="places">Places</option>
+                <option value="creatures">Creatures</option>
+                <option value="adjectives">Adjectives</option>
+            </select>
 
-        <label for="category2"></label>
-        <select name="category2" id="category2">
-            <option value="colors">Colors</option>
-            <option value="races">Races</option>
-            <option value="buildings">Buildings</option>
-            <option value="items">Items</option>
-            <option value="animals">Animals</option>
-            <option value="stories">Stories</option>
-            <option value="places">Places</option>
-            <option value="creatures">Creatures</option>
-            <option value="adjectives">Adjectives</option>
-        </select>
+            <label for="category2"></label>
+            <select name="category2" id="category2">
+                <option value="colors">Colors</option>
+                <option value="races">Races</option>
+                <option value="buildings">Buildings</option>
+                <option value="items">Items</option>
+                <option value="animals">Animals</option>
+                <option value="stories">Stories</option>
+                <option value="places">Places</option>
+                <option value="creatures">Creatures</option>
+                <option value="adjectives">Adjectives</option>
+            </select>
 
-        <label for="category3"></label>
-        <select name="category3" id="category3" hidden>
-            <option value="colors">Colors</option>
-            <option value="races">Races</option>
-            <option value="buildings">Buildings</option>
-            <option value="items">Items</option>
-            <option value="animals">Animals</option>
-            <option value="stories">Stories</option>
-            <option value="places">Places</option>
-            <option value="creatures">Creatures</option>
-            <option value="adjectives">Adjectives</option>
-        </select>
+            <label for="category3"></label>
+            <select name="category3" id="category3" hidden>
+                <option value="colors">Colors</option>
+                <option value="races">Races</option>
+                <option value="buildings">Buildings</option>
+                <option value="items">Items</option>
+                <option value="animals">Animals</option>
+                <option value="stories">Stories</option>
+                <option value="places">Places</option>
+                <option value="creatures">Creatures</option>
+                <option value="adjectives">Adjectives</option>
+            </select>
 
-        <label for="category4"></label>
-        <select name="category4" id="category4" hidden>
-            <option value="colors">Colors</option>
-            <option value="races">Races</option>
-            <option value="buildings">Buildings</option>
-            <option value="items">Items</option>
-            <option value="animals">Animals</option>
-            <option value="stories">Stories</option>
-            <option value="places">Places</option>
-            <option value="creatures">Creatures</option>
-            <option value="adjectives">Adjectives</option>
-        </select>
+            <label for="category4"></label>
+            <select name="category4" id="category4" hidden>
+                <option value="colors">Colors</option>
+                <option value="races">Races</option>
+                <option value="buildings">Buildings</option>
+                <option value="items">Items</option>
+                <option value="animals">Animals</option>
+                <option value="stories">Stories</option>
+                <option value="places">Places</option>
+                <option value="creatures">Creatures</option>
+                <option value="adjectives">Adjectives</option>
+            </select>
 
-        <label for="category5"></label>
-        <select name="category5" id="category5" hidden>
-            <option value="colors">Colors</option>
-            <option value="races">Races</option>
-            <option value="buildings">Buildings</option>
-            <option value="items">Items</option>
-            <option value="animals">Animals</option>
-            <option value="stories">Stories</option>
-            <option value="places">Places</option>
-            <option value="creatures">Creatures</option>
-            <option value="adjectives">Adjectives</option>
-        </select>
+            <label for="category5"></label>
+            <select name="category5" id="category5" hidden>
+                <option value="colors">Colors</option>
+                <option value="races">Races</option>
+                <option value="buildings">Buildings</option>
+                <option value="items">Items</option>
+                <option value="animals">Animals</option>
+                <option value="stories">Stories</option>
+                <option value="places">Places</option>
+                <option value="creatures">Creatures</option>
+                <option value="adjectives">Adjectives</option>
+            </select>
+            <br>
+        </div>
+
+        <!-- Custom Idea Text Input -->
+        <div>
+            <label for="customIdea">Custom Idea:</label>
+            <input type="text" name="customIdea" id="customIdea">
+            <br>
+        </div>
+        
+        <!-- Custom Idea Category -->
+        <div>
+            <label for="categoryOfIdea">Category of Idea:</label>
+            <select name="categoryOfIdea" id="categoryOfIdea">
+                <option value="colors">Colors</option>
+                <option value="races">Races</option>
+                <option value="buildings">Buildings</option>
+                <option value="items">Items</option>
+                <option value="animals">Animals</option>
+                <option value="stories">Stories</option>
+                <option value="places">Places</option>
+                <option value="creatures">Creatures</option>
+                <option value="adjectives">Adjectives</option>
+            </select>
+        </div>
         <br>
-    </div>
+        <button type="button" onclick="addIdea();">Add Idea</button>
+        
+        <!-- Favorites Only? -->
+        <center>
+            <label for="favorites">Favorites Only?
+                <input type="checkbox" id="favorites">
+            </label>
+        </center>
 
-    <!-- Custom Idea Text Input -->
-    <div>
-        <label for="customIdea">Custom Idea:</label>
-        <input type="text" name="customIdea" id="customIdea">
+        <!-- MIX Button! -->
+        <br><br>
+        <button type="button" onclick="favorites(); mixIdeas();">Mix</button>
         <br>
-    </div>
-    
-    <!-- Custom Idea Category -->
-    <div>
-        <label for="categoryOfIdea">Category of Idea:</label>
-        <select name="categoryOfIdea" id="categoryOfIdea">
-            <option value="colors">Colors</option>
-            <option value="races">Races</option>
-            <option value="buildings">Buildings</option>
-            <option value="items">Items</option>
-            <option value="animals">Animals</option>
-            <option value="stories">Stories</option>
-            <option value="places">Places</option>
-            <option value="creatures">Creatures</option>
-            <option value="adjectives">Adjectives</option>
-        </select>
-    </div>
-    <br>
-    <button type="button" onclick="addIdea();">Add Idea</button>
-    
-    <!-- Favorites Only? -->
-    <center>
-        <label for="favorites">Favorites Only?
-            <input type="checkbox" id="favorites">
-        </label>
-    </center>
 
-    <!-- MIX Button! -->
-    <br><br>
-    <button type="button" onclick="favorites(); mixIdeas();">Mix</button>
-    <br>
+        <hr>
+        
+        <!-- OUTPUT Fieldset -->
+        <fieldset>
+            <h2 id="output" style="text-align: center;"></h2>
+        </fieldset>
 
-    <hr>
-    
-    <!-- OUTPUT Fieldset -->
-    <fieldset>
-        <h2 id="output" style="text-align: center;"></h2>
-    </fieldset>
-
-<!-- <img src="assets/img/blue-green-swirl-abstract-background.jpeg" alt=""> -->
+        <!-- <img src="assets/img/blue-green-swirl-abstract-background.jpeg" alt=""> -->
     </center>
 
     <!-- FOOTER AND BOOTSTRAP SCRIPT -->
