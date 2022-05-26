@@ -102,10 +102,10 @@ h2
 
 div
 {
-    display: block;
-    margin: auto;
-    width:initial;
-    padding-left: 25%;
+    /* display: block; */
+    /* margin: auto; */
+    /* width:initial; */
+    /* padding-left: 25%; */
     /* padding-right: 25%; */
 
     /* Hidden for debugging :) */
@@ -131,8 +131,9 @@ hr
 }
 
 
+
 /* BUTTONS */
-button
+.idea-button
 {
     display: block;
     background-color: white;
@@ -149,7 +150,8 @@ button
     margin-bottom: var(--bsc-mrgn-btm);
 }
 
-button:hover
+
+.idea-button:hover
 {
     background-color: var(--primary);
     color: white;
@@ -203,7 +205,6 @@ input[type=text]
     backdrop-filter: var(--bg-blur);
     border: 1px solid var(--primary);
     border-radius: 5px;
-    padding: .5% 1.1%;
     margin-bottom: var(--bsc-mrgn-btm);
 }
 

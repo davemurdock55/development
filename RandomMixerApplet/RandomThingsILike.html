@@ -193,16 +193,16 @@
         <br>
         <h1>Idea Mixer</h1>
         <h2>Mix any two categories of random ideas together</h2>
-
+        <br>
         <!-- INFO: https://github.com/JSneak/firebase-tutorial#updating-data-in-the-realtime-database -->
         <center>
             <h3>THE BUTTON AND TEXT BOX:</h3>
             <input type="value" id="dataValue"></input>
-            <button onClick="pushData()">Add data to Firebase</button>
+            <button onClick="pushData()" class="idea-button">Add data to Firebase</button>
         </center>
 
         <!-- Number of Categories -->
-        <div>
+        <div class="selectbar">
             <label for="iNumCategories">Number of categories:</label>
             <select name="iNumCategories" id="iNumCategories" onchange="unhideCategories();">
                 <option value="2">2</option>
@@ -283,14 +283,14 @@
         </div>
 
         <!-- Custom Idea Text Input -->
-        <div>
+        <div class="selectbar">
             <label for="customIdea">Custom Idea:</label>
             <input type="text" name="customIdea" id="customIdea">
             <br>
         </div>
         
         <!-- Custom Idea Category -->
-        <div>
+        <div class="selectbar">
             <label for="categoryOfIdea">Category of Idea:</label>
             <select name="categoryOfIdea" id="categoryOfIdea">
                 <option value="colors">Colors</option>
@@ -305,7 +305,7 @@
             </select>
         </div>
         <br>
-        <button type="button" onclick="addIdea();">Add Idea</button>
+        <button type="button" onclick="addIdea();" class="idea-button">Add Idea</button>
         
         <!-- Favorites Only? -->
         <center>
@@ -316,7 +316,7 @@
 
         <!-- MIX Button! -->
         <br><br>
-        <button type="button" onclick="favorites(); mixIdeas();">Mix</button>
+        <button type="button" onclick="favorites(); mixIdeas();" class="idea-button">Mix</button>
         <br>
 
         <hr>
