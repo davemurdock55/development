@@ -95,7 +95,7 @@
             // Putting the data you're going to send to the data base into a variable (could be an array/object possibly in there)
             let data = document.getElementById("dataValue").value;
             // Pushing it to the database (idk where...)
-            let dataRef = database.ref('/newData/' + "nameOfNewParent");
+            let dataRef = database.ref('/newData/' + "testParent");
             console.log(data)
             dataRef.set({
                 value: data // 'data' is the data you're sending (could be in an array) to the database :)
