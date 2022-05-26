@@ -78,11 +78,11 @@
         // Creates it under a Unique ID in the database
         function pushDataUID(){
             // Putting the data you're going to send to the data base into a variable (could be an array/object possibly in there)
-            var data = document.getElementById("dataValue").value;
+            let data = document.getElementById("dataValue").value;
             // Pushing it to the database (root directory?)
-            var dataRef = database.ref('/').push();//Generates a new child location with a randomly generated id.
+            let dataRef = database.ref('/').push();//Generates a new child location with a randomly generated id.
             dataRef.set({
-                value: data // 'data' is the data you're sending in an array to the database :)
+                value: data // 'data' is the data you're sending (could be in an array) to the database :)
             });
         }
 
@@ -93,12 +93,12 @@
         // You get to choose the name of the new directory where it goes :) (no UID)
         function pushData(){
             // Putting the data you're going to send to the data base into a variable (could be an array/object possibly in there)
-            var data = document.getElementById("dataValue").value;
+            let data = document.getElementById("dataValue").value;
             // Pushing it to the database (idk where...)
-            var dataRef = database.ref('/newData/' + "nameOfNewParent");
+            let dataRef = database.ref('/newData/' + "nameOfNewParent");
             console.log(data)
             dataRef.set({
-                value: data
+                value: data // 'data' is the data you're sending (could be in an array) to the database :)
             });
         }
 
@@ -108,12 +108,12 @@
         // Function to set (edit) data in the 'Firebase' Realtime Database
         function setData(){
             // Putting the data you're going to send to the data base into a variable (could be an array/object possibly in there)
-            var data = document.getElementById("dataValue").value;
+            let data = document.getElementById("dataValue").value;
             // Adding it to the database (in the newData directory?)
-            var dataRef = database.ref('/newData');
+            let dataRef = database.ref('/newData');
             console.log(data)
             dataRef.set({
-                value: data // 'data' is the data you're sending in an array to the database :)
+                value: data // 'data' is the data you're sending (could be in an array) to the database :)
             });
         }
 
@@ -146,11 +146,14 @@
     <h1>Idea Mixer</h1>
     <h2>Mix any two categories of random ideas together</h2>
 
-    <!-- INFO: https://github.com/JSneak/firebase-tutorial#updating-data-in-the-realtime-database -->
-    <h3>THE BUTTON AND TEXT BOX:</h3>
-    <button onClick="pushData()">Add data to Firebase</button>
-    <input type="value" id="dataValue"></input>
+    <!-- INFO: https://github.com/JSneak/firebase-tutorial#updating-data-in-the-realtime-database -->\
+    <center>
+        <h3>THE BUTTON AND TEXT BOX:</h3>
+        <button onClick="pushData()">Add data to Firebase</button>
+        <input type="value" id="dataValue"></input>
+    </center>
 
+    <!-- Number of Categories -->
     <div>
         <label for="iNumCategories">Number of categories:</label>
         <select name="iNumCategories" id="iNumCategories" onchange="unhideCategories();">
@@ -161,6 +164,7 @@
         </select>
     </div>
 
+    <!-- Category Selection -->
     <div class="selectbar">
         <!-- For now this is a simple way for me to mash up some of the things I love -->
         <label for="category1"></label>
@@ -230,12 +234,14 @@
         <br>
     </div>
 
+    <!-- Custom Idea Text Input -->
     <div>
         <label for="customIdea">Custom Idea:</label>
         <input type="text" name="customIdea" id="customIdea">
         <br>
     </div>
     
+    <!-- Custom Idea Category -->
     <div>
         <label for="categoryOfIdea">Category of Idea:</label>
         <select name="categoryOfIdea" id="categoryOfIdea">
@@ -253,18 +259,21 @@
     <br>
     <button type="button" onclick="addIdea();">Add Idea</button>
     
+    <!-- Favorites Only? -->
     <center>
         <label for="favorites">Favorites Only?
             <input type="checkbox" id="favorites">
         </label>
     </center>
 
+    <!-- MIX Button! -->
     <br><br>
     <button type="button" onclick="favorites(); mixIdeas();">Mix</button>
     <br>
+
     <hr>
     
-
+    <!-- OUTPUT Fieldset -->
     <fieldset>
         <h2 id="output" style="text-align: center;"></h2>
     </fieldset>
