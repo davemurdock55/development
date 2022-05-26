@@ -7,26 +7,135 @@
     <title>Idea Mixer</title>
     <link rel="stylesheet" type="text/css" href="css/BlueFormStyle1.css">
     <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-analytics.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-        apiKey: "AIzaSyAb2Z-Iv_czaRZwnVv3jdNOqH3mXBZja-U",
-        authDomain: "david-murdock-website.firebaseapp.com",
-        databaseURL: "https://david-murdock-website-default-rtdb.firebaseio.com",
-        projectId: "david-murdock-website",
-        storageBucket: "david-murdock-website.appspot.com",
-        messagingSenderId: "719369310871",
-        appId: "1:719369310871:web:2294d4eacce42d57574fd2",
-        measurementId: "G-YQ041L38Q4"
-    };
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
+        // SEE THIS WEBSITE FOR MORE INFO ON WHAT IS GOING ON HERE:
+        // https://github.com/JSneak/firebase-tutorial#adding-firebase-to-your-website
+
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyAb2Z-Iv_czaRZwnVv3jdNOqH3mXBZja-U",
+            authDomain: "david-murdock-website.firebaseapp.com",
+            databaseURL: "https://david-murdock-website-default-rtdb.firebaseio.com",
+            projectId: "david-murdock-website",
+            storageBucket: "david-murdock-website.appspot.com",
+            messagingSenderId: "719369310871",
+            appId: "1:719369310871:web:2294d4eacce42d57574fd2",
+            measurementId: "G-YQ041L38Q4"
+        };
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        var database = firebase.database();
+
+
+        // INFO: https://github.com/JSneak/firebase-tutorial#pulling-data-from-the-realtime-database
+        // The database will listen at the root directory, which is done with .ref('/').
+        // Use .once if you want to pull from the database just one time.
+        var rootRef = database.ref('/');
+        rootRef.once('value', function(snapshot)
+        {
+            console.log(snapshot.val());
+        });
+        // When you make a call to the Firebase Database, it will return a "snapshot",
+        // A snapshot is data at the reference point you gave it. To access this data, we use .val().
+
+        // Instead of database.ref('/'), we would do database.ref('/directorypath' (e.g. '/username')) to get the data.
+
+
+        // If you want to continue to listen for updates past the first one use .on()
+        // .on() Listens for a certain event at a specific child. (add, change, delete, move)
+
+        
+        // INFO: https://github.com/JSneak/firebase-tutorial#child_added-event
+
+        // child_added event
+        pushDataRef = database.ref("/pushData");
+        pushDataRef.on("child_added", function(snapshot){
+            console.log("Below is the data from child_added");
+            console.log(snapshot.val());
+        });
+
+        // child_changed event
+        setDataRef = database.ref("/setData");
+        setDataRef.on('child_changed', function(snapshot) {
+            console.log("Below is the data from child_changed");
+            console.log(snapshot.val());
+        });
+
+        // FIREBASE PUSH FUNCTIONS
+
+        // INFO: https://github.com/JSneak/firebase-tutorial#updating-data-in-the-realtime-database
+
+        // Function to push data to the 'Firebase' Realtime Database
+        // Creates it under a Unique ID in the database
+        function pushDataUID(){
+            // Putting the data you're going to send to the data base into a variable (could be an array/object possibly in there)
+            var data = document.getElementById("dataValue").value;
+            // Pushing it to the database (root directory?)
+            var dataRef = database.ref('/').push();//Generates a new child location with a randomly generated id.
+            dataRef.set({
+                value: data // 'data' is the data you're sending in an array to the database :)
+            });
+        }
+
+        // If you want to make a new parent and child without having to use .push()
+        // or if you don't want to use a firebase generated UID (Unique ID), then do the example below.
+
+        // Alternative Function to push data and create a new parent/child
+        // You get to choose the name of the new directory where it goes :) (no UID)
+        function pushData(){
+            // Putting the data you're going to send to the data base into a variable (could be an array/object possibly in there)
+            var data = document.getElementById("dataValue").value;
+            // Pushing it to the database (idk where...)
+            var dataRef = database.ref('/newData/' + "nameOfNewParent");
+            console.log(data)
+            dataRef.set({
+                value: data
+            });
+        }
+
+        // FIREBASE SET FUNCTION
+        // INFO: https://github.com/JSneak/firebase-tutorial#updating-data-in-the-realtime-database
+
+        // Function to set (edit) data in the 'Firebase' Realtime Database
+        function setData(){
+            // Putting the data you're going to send to the data base into a variable (could be an array/object possibly in there)
+            var data = document.getElementById("dataValue").value;
+            // Adding it to the database (in the newData directory?)
+            var dataRef = database.ref('/newData');
+            console.log(data)
+            dataRef.set({
+                value: data // 'data' is the data you're sending in an array to the database :)
+            });
+        }
+
+        // https://github.com/JSneak/firebase-tutorial#objectkeys
+
+        // Object.keys()
+        // This will return an array of keys
+        // (a key is the identifier in a key:value pair)
+        database.ref('/pushData').once('value', function(snapshot){
+            console.log(Object.keys(snapshot.val()));
+        })
+
+        // https://github.com/JSneak/firebase-tutorial#key
+
+        // .key
+        // This will return the key of 1 object in a key:value pair
+        database.ref('/pushData').once('value', function(snapshot){
+            snapshot.forEach(function(data){
+                console.log(data.key);
+            });
+        })
+
     </script>
 </head>
 <body>
@@ -36,6 +145,11 @@
     
     <h1>Idea Mixer</h1>
     <h2>Mix any two categories of random ideas together</h2>
+
+    <!-- INFO: https://github.com/JSneak/firebase-tutorial#updating-data-in-the-realtime-database -->
+    <h3>THE BUTTON AND TEXT BOX:</h3>
+    <button onClick="pushData()">Add data to Firebase</button>
+    <input type="value" id="dataValue"></input>
 
     <div>
         <label for="iNumCategories">Number of categories:</label>
