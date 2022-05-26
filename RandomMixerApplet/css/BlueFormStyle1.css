@@ -207,6 +207,19 @@ input[type=text]
     margin-bottom: var(--bsc-mrgn-btm);
 }
 
+
+input[type=value]
+{
+    /* background-color: white; */
+    background-color: var(--bg-opac);
+    backdrop-filter: var(--bg-blur);
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    padding: .5% 1.1%;
+    margin-bottom: var(--bsc-mrgn-btm);
+}
+
+
 select
 {
     border: 1px solid var(--primary);
