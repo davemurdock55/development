@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit a Case</title>
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="/css/styles.css" rel="stylesheet" />
+  <!-- Favicon-->
+  <link rel="icon" type="image/x-icon" href="../assets/img/red_stop_sign.svg" />
+  <!-- Bootstrap Icons-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+  <!-- SimpleLightbox plugin CSS-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+  <!-- CSS Bulma -->
+  <link rel="stylesheet" href="https://cdnjs.cloudfare.com/ajax/libs/bulma/0.7.2/css/bulma.css" />
+  <style>
+    table,
+    th,
+    td {
+      border-collapse: collapse;
+      border: 1px solid;
+      text-align: center;
+    }
+    td {
+      padding: 5px 5px 5px 5px;
+    }
+    input {
+      text-align: center;
+      background-color: transparent;
+      color: #fff;
+      border: 1px solid #fff;
+      border-radius: 5px;
+    }
+
+    select {
+      background-color: transparent;
+      color: #fff;
+      border: 1px solid #fff;
+      border-radius: 5px;
+    }
+
+  </style>
+  <!-- CSS Bulma -->
+  <link rel="stylesheet" href="https://cdnjs.cloudfare.com/ajax/libs/bulma/0.7.2/css/bulma.css" />
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <div class="container px-4 px-lg-5">
+      <a href="home"><img style="height: 50px; width: 50px;" src="../assets//img/red_stop_sign.svg" alt=""></a>
+      &nbsp;<a class="navbar-brand" href="home"><span style="color: #E94040">[STOP]</span> Human Trafficking</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto my-2 my-lg-0">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/viewdata">View Data</a></li>
+          <li class="nav-item"><a class="nav-link" href="/addcase">Report a Case</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-section bg-dark text-white" id="statistics">
+    <div class="container px-4 px-lg-5 text-center">
+      <center>
+        <h1>Edit a Case</h1>
+        <form method="post" action="/edit/<%= aCase[0].case %>">
+          <hr class="divider divider-light" />
+            <div style="overflow-x: scroll" >
+              <table>
+                <thead>
+                  <tr>
+                    <!-- <th>Case</th> -->
+                    <th>Date Missing</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Age At Missing</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Gender</th>
+                    <th>Race</th>
+                  </tr>
+                </thead>
+                <tr>
+                  <td><label for="date_missing"></label>
+                    <input type="text" id="date_missing" name="date_missing" required placeholder="MM/DD/YYYY" value="<%= aCase[0].date_missing.getMonth()+1 %>/<%= aCase[0].date_missing.getDate() %>/<%= aCase[0].date_missing.getFullYear() %>">
+                  </td>
+  
+                  <td><label for="first_name"></label>
+                    <input type="text" id="first_name" name="first_name" maxlength="30" required placeholder="First Name" value="<%= aCase[0].first_name %>">
+                  </td>
+  
+                  <td><label for="last_name"></label>
+                    <input type="text" id="last_name" name="last_name" maxlength="30" required placeholder="Last Name" value="<%= aCase[0].last_name %>">
+                  </td>
+  
+                  <td><label for="age_at_missing"></label>
+                    <input type="number" id="age_at_missing" name="age_at_missing" maxlength="3" min="0" required placeholder="0" style="width: 50px;" size="3" value="<%= aCase[0].age_at_missing %>">
+                  </td>
+  
+                  <td><label for="city"></label>
+                    <input type="text" id="city" name="city" maxlength="30" required placeholder="Sacramento" value="<%= aCase[0].city %>">
+                  </td>
+  
+                  <td><label for="state"></label>
+                    <input type="text" id="state" name="state" maxlength="2" required placeholder="CA" size="3" value="<%= aCase[0].state %>">
+                  </td>
+  
+                  <td><label for="gender"></label>
+                    <select name="gender" id="gender" required value="<%= aCase[0].gender %>">
+                      <option value="M" <% if(aCase[0].gender == "M") {%> selected <%}%>>Male</option>
+                      <option value="F" <% if(aCase[0].gender == "F") {%> selected <%}%>>Female</option>
+                      <option value="O" <% if(aCase[0].gender == "O") {%> selected <%}%>>Other</option>
+                    </select>
+                  </td>
+  
+                  <td><label for="race"></label>
+                    <select name="race" id="race" required value="<%= aCase[0].race %>">
+                      <option value="W" <% if(aCase[0].race == "W") {%> selected <%}%>>W</option>
+                      <option value="M" <% if(aCase[0].race == "M") {%> selected <%}%>>M</option>
+                      <option value="H" <% if(aCase[0].race == "H") {%> selected <%}%>>H</option>
+                    </select>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>  
+            <br><br>
+
+            <label for="submitButton"></label>
+            <button class="btn btn-light btn-xl" type="submit" id="submitButton">Save Edits</button>
+          </fieldset>
+        </form>
+      </center>
+    </div>
+  </section>
+
+  <!-- Footer-->
+  <footer class="bg-light py-5">
+    <div class="container px-4 px-lg-5">
+      <div class="small text-center text-muted">Copyright &copy; 2022 - [STOP] Human Trafficking Movement</div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- SimpleLightbox plugin JS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+  <!-- Core theme JS-->
+  <script src="../js/scripts.js"></script>
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+  <!-- * *                               SB Forms JS                               * *-->
+  <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+  <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+
+</html>
